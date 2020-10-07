@@ -231,6 +231,51 @@ return [
     */
 
     'menu' => [
+        [
+            'text' => 'Usuarios',
+            'url'  => 'users',
+            'icon' => 'fas fa-fw fa-user',
+        ],
+        [
+            'text' => 'Clientes',
+            'url'  => 'admin/settings',
+            'icon' => 'fas fa-fw fa-users',
+        ],
+        [
+            'text' => 'Citas',
+            'url'  => 'admin/settings',
+            'icon' => 'fas fa-fw fa-calendar-alt',
+        ],
+        [
+            'text' => 'Documentos',
+            'url'  => 'admin/settings',
+            'icon' => 'fas fa-fw fa-file',
+        ],
+        [
+            'text' => 'Leyes',
+            'url'  => 'admin/settings',
+            'icon' => 'fas fa-fw fa-book',
+        ],
+        [
+            'text' => 'Instituciones',
+            'url'  => 'admin/settings',
+            'icon' => 'fas fa-fw fa-university',
+        ],
+        [
+            'text' => 'Contratos',
+            'url'  => 'admin/settings',
+            'icon' => 'fas fa-fw fa-edit',
+        ],
+        [
+            'text' => 'Expedientes',
+            'url'  => 'admin/settings',
+            'icon' => 'fas fa-fw fa-folder-open',
+        ],
+        [
+            'text' => 'Log de actividades',
+            'url'  => 'admin/settings',
+            'icon' => 'fas fa-fw fa-user',
+        ],
         // [
         //     'text' => 'search',
         //     'search' => true,
@@ -249,11 +294,6 @@ return [
         //     'label_color' => 'success',
         // ],
         // ['header' => 'account_settings'],
-        [
-            'text' => 'profile',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-user',
-        ],
         // [
         //     'text' => 'change_password',
         //     'url'  => 'admin/settings',
