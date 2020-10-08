@@ -174,6 +174,10 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        Ozparr\AdminlteComponents\AdminlteComponentServiceProvider::class,
+        Laracasts\Flash\FlashServiceProvider::class,
+        Ozparr\AdminlteUsers\AdminLoginServiceProvider::class,
+
 
     ],
 
@@ -226,7 +230,7 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
-
+        'Flash'=> Laracasts\Flash\Flash::class,
     ],
 
 ];

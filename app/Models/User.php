@@ -20,6 +20,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'rol_id',
+        'img'
     ];
 
     /**
@@ -40,4 +42,26 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function rol(){
+        return $this->belongsTo('Ozparr\AdminlteUsers\Models\Rol');
+    }
+
+    public function getImgAttribute($value)
+    {
+        return 'storage/img/users/' . $value;
+    }
+
+    /**
+     * @var array $roles
+     * @return bool
+     */
+    public function areRol($roles){
+        foreach ($roles as $rol){
+            if($this->rol->nombre == $rol ){
+                return true;
+            }
+        }
+        return false;
+    }
 }

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "02d19231f916d2462a25c1bd9977e23a",
+    "content-hash": "fe34546cb28716a8e7426c0d0c5f9467",
     "packages": [
         {
             "name": "almasaeed2010/adminlte",
@@ -852,6 +852,60 @@
             "time": "2020-09-26T21:28:24+00:00"
         },
         {
+            "name": "laracasts/flash",
+            "version": "3.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laracasts/flash.git",
+                "reference": "76c2e200498795bdbeda97b682536130316e8b97"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laracasts/flash/zipball/76c2e200498795bdbeda97b682536130316e8b97",
+                "reference": "76c2e200498795bdbeda97b682536130316e8b97",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "~5.0|^6.0|^7.0|^8.0",
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "dev-master",
+                "phpunit/phpunit": "^6.1"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Laracasts\\Flash\\FlashServiceProvider"
+                    ],
+                    "aliases": {
+                        "Flash": "Laracasts\\Flash\\Flash"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Laracasts\\Flash": "src/"
+                },
+                "files": [
+                    "src/Laracasts/Flash/functions.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jeffrey Way",
+                    "email": "jeffrey@laracasts.com"
+                }
+            ],
+            "description": "Easy flash notifications",
+            "time": "2020-09-07T13:25:35+00:00"
+        },
+        {
             "name": "laravel/framework",
             "version": "v8.9.0",
             "source": {
@@ -1366,6 +1420,48 @@
             ],
             "description": "This package contain multiple components for jeroennoten/laravel-adminlte",
             "time": "2020-08-25T17:59:30+00:00"
+        },
+        {
+            "name": "luisozparr/adminlte_users",
+            "version": "v1.2.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/LuisOzParr/adminlte_users.git",
+                "reference": "c8d7a2a9a311c1af0f60dab736947828f44c4b0c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/LuisOzParr/adminlte_users/zipball/c8d7a2a9a311c1af0f60dab736947828f44c4b0c",
+                "reference": "c8d7a2a9a311c1af0f60dab736947828f44c4b0c",
+                "shasum": ""
+            },
+            "require": {
+                "jeroennoten/laravel-adminlte": "^3.0",
+                "laracasts/flash": ">=3.0.1",
+                "luisozparr/adminlte_laravel_components": "^1.0",
+                "php": "^7.2"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~5.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Ozparr\\AdminlteUsers\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Luis Ozuna",
+                    "email": "lgozuna@gmail.com"
+                }
+            ],
+            "description": "Templeta AdminLTE para laravel",
+            "time": "2020-10-08T18:15:13+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -6552,5 +6648,6 @@
     "platform": {
         "php": "^7.3"
     },
-    "platform-dev": []
+    "platform-dev": [],
+    "plugin-api-version": "1.1.0"
 }
