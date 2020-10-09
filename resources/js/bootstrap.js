@@ -11,6 +11,10 @@ try {
     window.$ = window.jQuery = require('jquery');
 
     require('bootstrap');
+    require('overlayscrollbars');
+    require('../../vendor/almasaeed2010/adminlte/dist/js/adminlte');
+    require('datatables.net-bs4');
+    require('datatables.net-buttons-bs4');
 } catch (e) {}
 
 /**
