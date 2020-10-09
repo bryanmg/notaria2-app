@@ -233,17 +233,17 @@ return [
     'menu' => [
         [
             'text' => 'Usuarios',
-            'url'  => 'users',
+            'url'  => 'admin/adminUsuarios',
             'icon' => 'fas fa-fw fa-user',
         ],
         [
             'text' => 'Clientes',
-            'url'  => 'admin/settings',
+            'url'  => 'customers',
             'icon' => 'fas fa-fw fa-users',
         ],
         [
             'text' => 'Citas',
-            'url'  => 'admin/settings',
+            'url'  => 'datings',
             'icon' => 'fas fa-fw fa-calendar-alt',
         ],
         [
