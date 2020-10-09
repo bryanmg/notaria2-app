@@ -17,7 +17,8 @@
         "laravel/tinker": "^2.0",
         "laravel/ui": "^3.0",
         "luisozparr/adminlte_laravel_components": "^1.5",
-        "luisozparr/adminlte_users": "^1.2"
+        "luisozparr/adminlte_users": "^1.2",
+        "yajra/laravel-datatables": "^1.5"
     },
     "require-dev": {
         "facade/ignition": "^2.3.6",
