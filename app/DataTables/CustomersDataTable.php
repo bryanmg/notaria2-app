@@ -4,6 +4,7 @@ namespace App\DataTables;
 
 // use App\CustomersDataTable;
 use App\Models\Customer;
+use App\Models\User;
 use Yajra\DataTables\Html\Button;
 use Yajra\DataTables\Html\Column;
 use Yajra\DataTables\Html\Editor\Editor;
@@ -20,10 +21,12 @@ class CustomersDataTable extends DataTable
      */
     public function dataTable($query)
     {
-        logger('dataTable');
         return datatables()
             ->eloquent($query)
-            ->addColumn('action', 'customersdatatable.action');
+            ->addColumn('action', function($model){
+                $customer_id = $model->id;
+                return view('customer.options', compact('customer_id'));
+            });
     }
 
     /**
@@ -34,8 +37,7 @@ class CustomersDataTable extends DataTable
      */
     public function query(Customer $model)
     {
-        $customer = Customer::select();
-        return $customer;
+        return $model->newQuery()->with('user');
     }
 
     /**
@@ -45,7 +47,6 @@ class CustomersDataTable extends DataTable
      */
     public function html()
     {
-        logger('html');
         return $this->builder()
                     ->setTableId('customers')
                     ->columns($this->getColumns())
@@ -69,11 +70,13 @@ class CustomersDataTable extends DataTable
     protected function getColumns()
     {
         return [
-            Column::make('id'),
-            Column::make('lastname'),
-            Column::make('birthplace'),
-            Column::make('created_at'),
-            Column::make('updated_at')
+            Column::make('user.name')->title('Cliente'),
+            Column::make('lastname')->title('Apellidos'),
+            Column::make('adress')->title('Dirección'),
+            Column::make('phone')->title('Teléfono'),
+            Column::make('rfc')->title('RFC'),
+            Column::make('curp')->title('CURP'),
+            Column::make('action')->title('Acciones')
             ->exportable(false)
                   ->printable(false)
                   ->width(60)

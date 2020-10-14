@@ -25,4 +25,8 @@ class Customer extends Model
         'civil_status',
         'user_id'
     ];
+
+    public function user(){
+        return $this->belongsTo('App\Models\User');
+    }
 }

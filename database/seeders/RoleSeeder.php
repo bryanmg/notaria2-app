@@ -15,7 +15,7 @@ class RoleSeeder extends Seeder
     public function run()
     {
         $roles = [
-            ["nombre" => "Root", 'nivel' => 1],
+            ["nombre" => "Admin", 'nivel' => 1],
             ["nombre" => "Cliente", 'nivel' => 2]
         ];
 

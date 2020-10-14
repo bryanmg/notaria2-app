@@ -14,7 +14,7 @@ return [
    | La ruta a la que se redireccióna cunando un usuario es autenticado
    |
    */
-    'loginRedirec'=>'admin/home',
+    'loginRedirec'=>'home',
 
     'loginRedirecLogout'=>'/login',
 

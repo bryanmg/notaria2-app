@@ -10,6 +10,11 @@
     @section('content')
         <div class="row">
             <div class="col-md-12">
+                @if(session()->has('message'))
+                    <div class="alert alert-success">
+                        {{ session()->get('message') }}
+                    </div>
+                @endif
                 <div class="card">
                     <div class="card-header">
                         <div class="row">
