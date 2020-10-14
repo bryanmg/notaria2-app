@@ -8,6 +8,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use App\DataTables\CustomersDataTable;
+use Illuminate\Support\Facades\Redirect;
 
 class CustomerController extends Controller
 {
@@ -73,7 +74,7 @@ class CustomerController extends Controller
         $customer->civil_status = $request->civil_status;
         $customer->user_id = $user->id;
         $customer->save();
-        return redirect('customers/create')->with('message', 'Cliente creado correctamente');
+        return redirect('customers')->with('message', 'Cliente creado correctamente');
     }
 
     /**
@@ -95,7 +96,8 @@ class CustomerController extends Controller
      */
     public function edit($id)
     {
-        //
+        $customer = Customer::with('user')->where('id', $id)->first();
+        return view('customer.edit', compact('customer'));
     }
 
     /**
@@ -107,7 +109,35 @@ class CustomerController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $validateCustomer = Validator::make($request->all(),
+            [
+                'email' => 'required',
+            ],
+            [
+                'email.required' => 'El Email es requerido',
+                'email.unique' => 'Este Email ya existe',
+            ]
+        );
+        if ($validateCustomer->fails()) {
+            return redirect()->back()->withErrors($validateCustomer)->withInput();
+        }
+
+        $customer = Customer::find($id);
+        $customer->lastname = $request->lastname;
+        $customer->birthplace = $request->birthplace;
+        $customer->birthdate = $request->birthdate;
+        $customer->adress = $request->adress;
+        $customer->phone = $request->phone;
+        $customer->curp = $request->curp;
+        $customer->rfc = $request->rfc;
+        $customer->job = $request->job;
+        $customer->civil_status = $request->civil_status;
+        $customer->save();
+        $user = User::find($customer->user_id);
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->save();
+        return redirect('customers')->with('message', 'Cliente actualizado correctamente');
     }
 
     /**
@@ -118,6 +148,10 @@ class CustomerController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $customer = Customer::find($id);
+        $user_id = $customer->user_id;
+        $customer->delete();
+        User::destroy($user_id);
+        return redirect('customers')->with('message', 'Cliente eliminado correctamente');
     }
 }

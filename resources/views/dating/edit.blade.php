@@ -20,37 +20,43 @@
                     <div class="card-header">
                         <div class="row">
                             <div class="col-md-6">
-                                <h3 class="card-title">Nueva cita</h3>
+                                <h3 class="card-title">Editar cita</h3>
+                            </div>
+                            <div class="col-md-6 text-right">
+                                {!! Form::open(array('route' => array('datings.destroy', $dating->id), 'method' => 'DELETE')) !!}
+                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-trash"> Eliminar cita</i></button>
+                                {!! Form::close() !!}
                             </div>
                         </div>
                     </div>
                     <div class="card-body">
-                        {!! Form::open(array('route' => array('datings.store'), 'method' => 'POST')) !!}
+                        {!! Form::open(array('route' => array('datings.update', $dating->id), 'method' => 'POST')) !!}
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="">Cliente</label>
                                     <select name="user_id" id="user_id" class="form-control" required>
                                         @foreach ($users as $user)
-                                            <option value="{{$user->id}}">{{$user->name}} {{$user->customers[0]->lastname}}</option>
+                                            <option @if ($user->id == $customer->user_id) selected @endif value="{{$user->id}}">{{$user->name}} {{$user->customers[0]->lastname}}</option>
                                         @endforeach
                                     </select>
                                 </div>
                                 <div class="form-group">
                                     <label for="">Fecha/Hora</label>
-                                    <input type="datetime-local" class="form-control" id="dating_time" name="dating_time" required>
+                                <input type="datetime-local" class="form-control" id="dating_time" name="dating_time" value="{{$dating->dating_time}}" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="">Motivo</label>
-                                    <input type="name" class="form-control" id="name" name="name" required >
+                                    <input type="name" class="form-control" id="name" name="name" required value="{{$dating->name}}">
                                     @if ($errors->has('name')) <p style="color:red;">{{ $errors->first('name') }}</p> @endif
                                 </div>
                                 <div class="form-group">
                                     <label>Descripcion</label>
-                                    <input type="description" class="form-control" id="description" name="description" required>
+                                    <input type="description" class="form-control" id="description" name="description" value="{{$dating->description}}" required>
                                     @if ($errors->has('description')) <p style="color:red;">{{ $errors->first('description') }}</p> @endif
                                 </div>
                             </div>
                             <div class="col-md-12 text-right">
+                                <a href="{{ route('datings.index')}}" type="submit" class="btn btn-info" ><i class=" fas"> Cancelar</i></a>
                                 <button type="submit" class="btn btn-success"><i class="fas fa-save"> Guardar</i></button>
                             </div>
                         {!! Form::close() !!}

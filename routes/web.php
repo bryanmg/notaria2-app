@@ -21,6 +21,6 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::group(['middleware' => ['auth']], function () {
-    Route::resource('datings', 'App\Http\Controllers\DatingController');
     Route::resource('customers', 'App\Http\Controllers\CustomerController');
+    Route::resource('datings', 'App\Http\Controllers\DatingController');
 });
