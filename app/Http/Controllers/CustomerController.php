@@ -8,6 +8,8 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use App\DataTables\CustomersDataTable;
+use App\Http\Requests\StoreCustomer;
+use App\Http\Requests\UpdateCustomer;
 use Illuminate\Support\Facades\Redirect;
 
 class CustomerController extends Controller
@@ -41,20 +43,8 @@ class CustomerController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreCustomer $request)
     {
-        $validateCustomer = Validator::make($request->all(),
-            [
-                'email' => 'required|unique:users',
-            ],
-            [
-                'email.required' => 'El Email es requerido',
-                'email.unique' => 'Este Email ya existe',
-            ]
-        );
-        if ($validateCustomer->fails()) {
-            return redirect()->back()->withErrors($validateCustomer)->withInput();
-        }
         $user = new User();
         $user->rol_id = Role::CUSTOMER_ID;
         $user->name = $request->name;
@@ -107,21 +97,8 @@ class CustomerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UpdateCustomer $request, $id)
     {
-        $validateCustomer = Validator::make($request->all(),
-            [
-                'email' => 'required',
-            ],
-            [
-                'email.required' => 'El Email es requerido',
-                'email.unique' => 'Este Email ya existe',
-            ]
-        );
-        if ($validateCustomer->fails()) {
-            return redirect()->back()->withErrors($validateCustomer)->withInput();
-        }
-
         $customer = Customer::find($id);
         $customer->lastname = $request->lastname;
         $customer->birthplace = $request->birthplace;

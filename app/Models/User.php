@@ -49,7 +49,7 @@ class User extends Authenticatable
     }
 
     public function customers(){
-        return $this->hasMany('App\Models\Customer');
+        return $this->hasMany(Customer::class);
     }
 
     public function getImgAttribute($value)

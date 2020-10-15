@@ -23,4 +23,5 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::group(['middleware' => ['auth']], function () {
     Route::resource('customers', 'App\Http\Controllers\CustomerController');
     Route::resource('datings', 'App\Http\Controllers\DatingController');
+    Route::resource('documents', 'App\Http\Controllers\DocumentController');
 });

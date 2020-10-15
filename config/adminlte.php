@@ -248,7 +248,7 @@ return [
         ],
         [
             'text' => 'Documentos',
-            'url'  => 'admin/settings',
+            'url'  => 'documents',
             'icon' => 'fas fa-fw fa-file',
         ],
         [
