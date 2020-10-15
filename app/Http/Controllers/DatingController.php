@@ -73,7 +73,7 @@ class DatingController extends Controller
         $users = User::with('customers')->where('rol_id', Rol::CUSTOMER_ID)->get();
         $dating = Dating::find($id);
         $dating->dating_time = Carbon::parse($dating->dating_time)->format('Y-m-d\TH:i');
-        $customer = Customer::find($dating->customer_id);
+        $customer = Customer::findOrFail($dating->customer_id);
         return view('dating.edit', compact('users', 'dating', 'customer'));
     }
 

@@ -30,6 +30,7 @@
                                     <div class="form-group">
                                         <label for="name">Nombres</label>
                                         <input type="text" class="form-control" id="name" name="name" required>
+                                        @if ($errors->has('name')) <p style="color:red;">{{ $errors->first('name') }}</p> @endif
                                     </div>
                                     <div class="form-group">
                                         <label for="lastname">Apellidos</label>

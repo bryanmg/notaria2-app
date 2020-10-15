@@ -45,7 +45,7 @@
                                     @if ($errors->has('name')) <p style="color:red;">{{ $errors->first('name') }}</p> @endif
                                 </div>
                                 <div class="form-group">
-                                    <label>Descripcion</label>
+                                    <label>Descripción</label>
                                     <input type="description" class="form-control" id="description" name="description" required>
                                     @if ($errors->has('description')) <p style="color:red;">{{ $errors->first('description') }}</p> @endif
                                 </div>
